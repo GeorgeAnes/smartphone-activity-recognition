@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Private/raw recordings
+data/private/
+data/raw/
+data/processed/
+*.zip
+
+# Generated local outputs
+figures/generated/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
