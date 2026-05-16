@@ -3,12 +3,14 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
+.ipynb_checkpoints/
 
 # Private/raw recordings
 data/private/
 data/raw/
 data/processed/
 *.zip
+*.7z
 
 # Generated local outputs
 figures/generated/
@@ -18,4 +20,3 @@ figures/generated/
 Thumbs.db
 .vscode/
 .idea/
-

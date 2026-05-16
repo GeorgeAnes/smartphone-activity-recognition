@@ -14,9 +14,9 @@ Smartphone IMU data can be used to infer activities such as sitting, standing, w
 - Supervised classifiers including logistic regression, decision trees, naive Bayes, and k-nearest neighbors
 - Leave-one-participant-out validation and external blind validation in the original project
 
-## Public Demo
+## Public Dataset
 
-The original raw recordings are not included. This repository contains a small synthetic demo pipeline that mirrors the feature-engineering and classifier workflow without exposing participant data.
+The original raw recordings are not included. This repository contains an anonymized feature table derived from the processed IMU recordings, with participant names, timestamps, and local paths removed.
 
 Run:
 
@@ -24,15 +24,29 @@ Run:
 python -m venv .venv
 .\.venv\Scripts\activate
 pip install -r requirements.txt
-python src\har_pipeline.py --synthetic
+python src\har_pipeline.py
 ```
+
+Open the end-to-end notebook:
+
+```powershell
+jupyter notebook notebooks\har_activity_recognition.ipynb
+```
+
+Current benchmark summary on the included feature table:
+
+| Evaluation | Best model | Balanced accuracy |
+| --- | --- | ---: |
+| Stratified holdout | Random forest | 0.962 |
+| Leave-one-participant-out | Random forest | 0.628 mean |
 
 ## Repository Structure
 
 ```text
-src/              Public-safe HAR feature extraction and synthetic demo pipeline
-data/sample/      Notes for synthetic/sample data
-figures/          Reserved for selected public-safe figures
+src/              Feature extraction and model evaluation code
+notebooks/        End-to-end portfolio notebook
+data/             Anonymized derived feature table and data notes
+figures/          Generated notebook figures
 ```
 
 ## Technologies
@@ -41,9 +55,8 @@ Python, NumPy, pandas, scikit-learn, signal features, classification, activity r
 
 ## Data Availability
 
-The real smartphone recordings are omitted because they contain private participant sensor traces and raw collection artifacts. The public repo uses synthetic data for demonstration only.
+The raw smartphone recordings are omitted because they contain participant sensor traces and raw collection artifacts. The included CSV is a derived feature table with anonymized participant IDs.
 
 ## Status and Limitations
 
-Curated public portfolio version. The synthetic demo validates the code path but is not a substitute for reporting real-world model performance.
-
+Curated public portfolio version. The notebook and command-line pipeline run on the included anonymized feature dataset.
